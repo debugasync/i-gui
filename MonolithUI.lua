@@ -5,7 +5,7 @@ local MonolithUI = {}
 -- Persistent variables for UI elements
 local is_checked = true
 local slider_value = 50
-local color = {0.8, 0.3, 0.5}
+local color = Color3.new(0.8, 0.3, 0.5)  -- Initialize color as a Color3 userdata
 
 function MonolithUI:Render()
     -- Begin the Main Window
@@ -34,8 +34,8 @@ function MonolithUI:Render()
             ImGui.Text("Choose options:")
 
             -- Button Example
-            if ImGui.Button("Press Me!") then
-                print("Button Pressed!")
+            if ImGui.Button("press for criminality hakk hhuhuhuuh") then
+                print("eternal blakk hahahaa no crim scriopt nigger monolith hack u ratted U")
             end
 
             -- Checkbox Example
@@ -45,10 +45,15 @@ function MonolithUI:Render()
             slider_value = ImGui.SliderInt("Adjust Value", slider_value, 0, 100)
         end
 
-        -- Color Picker Section
+        -- Color Picker Section with Color3 userdata
         if ImGui.CollapsingHeader("Color Settings") then
-            color[1], color[2], color[3] = ImGui.ColorPicker3("Pick a Color", color)
+            color = ImGui.ColorPicker3("Pick a Color", color)
         end
+
+        -- Displaying Colorized Text using GetColorU32
+        ImGui.TextColored(ImGui.GetColorU32(255, 0, 0, 255), "hi red")
+        ImGui.TextColored(ImGui.GetColorU32(0, 255, 0, 255), "hi green")
+        ImGui.TextColored(ImGui.GetColorU32(0, 0, 255, 255), "hi blue")
 
         -- End the main window
         ImGui.End()
